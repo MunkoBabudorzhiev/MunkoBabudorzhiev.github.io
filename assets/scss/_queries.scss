@@ -1,0 +1,200 @@
+@media (max-width: 576px) {
+	.container {
+		width: 100%;
+	}
+}
+
+@media (min-width: 576px) {
+	.container {
+		width: 540px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		width: 720px;
+	}
+}
+
+@media (min-width: 992px) {
+	.container {
+		width: 960px;
+	}
+}
+
+@media (min-width: 1200px) {
+	.container {
+		width: 1140px;
+	}
+}
+
+@media (min-width: 1400px) {
+	.container {
+		width: 1320px;
+	}
+}
+
+@media (max-width: 1330px) {
+
+}
+
+@media (max-width: 1199px) {
+
+	.services__block {
+		grid-gap: 1em;
+	}
+}
+
+@media (max-width: 992px) {
+	body {
+		font-size: 12px;
+	}
+
+	.container {
+		max-width: 100%;
+	}
+
+	.content__inner {
+		padding: 0;
+	}
+
+	.h1 {
+		font-size: 3.2em;
+		font-weight: bold;
+	}
+
+	.h2 {
+		font-size: 2.5em;
+		font-weight: bold;
+	}
+
+	.h3 {
+		font-size: 2em;
+		font-weight: bold;
+	}
+
+	.h4 {
+		font-size: 1.55em;
+	}
+
+	.h5 {
+		font-size: 1.25em;
+	}
+
+	.header {
+		&.open {
+			box-shadow: none;
+		}
+	}
+
+	.header__banner,
+	.section__item {
+		padding: 1.5em 0;
+	}
+
+	.header__social,
+	.header__info {
+		flex: 0 0 auto;
+	}
+
+	.nav__btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1em;
+	}
+
+	.nav__list {
+		flex-direction: column;
+		background: var(--header-color);
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+		transition: 300ms all;
+		z-index: 11;
+
+		&.open {
+			box-shadow: var(--before-shadow);
+			height: auto;
+		}
+	}
+
+	.nav__item {
+		.nav__link {
+			padding: 1em;
+			font-size: 1.5em;
+			word-break: keep-all;
+		}
+	}
+
+	.section__gallery {
+		.gallery__block {
+			grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+			grid-gap: 2em;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.content__inner {
+		tr {
+			flex-direction: column;
+			justify-content: flex-start;
+			width: 100% !important;
+			height: auto !important;
+
+			th,
+			td {
+				flex: 1 1;
+				width: 100% !important;
+				padding: .5em;
+				vertical-align: baseline;
+			}
+		}
+	}
+
+
+	.social__block {
+		margin-right: 0;
+	}
+
+}
+
+@media (max-width: 576px) {
+	.container {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	.h1 {
+		font-size: 2em;
+	}
+
+	.h2 {
+		font-size: 1.8em;
+	}
+
+	.h3 {
+		font-size: 1.6em;
+	}
+
+	.h4 {
+		font-size: 1.4em;
+	}
+
+	.h5 {
+		font-size: 1.2em;
+	}
+
+	.section__title {
+		padding: 1em;
+	}
+
+	.section__block {
+		padding: 0 0;
+	}
+
+}
