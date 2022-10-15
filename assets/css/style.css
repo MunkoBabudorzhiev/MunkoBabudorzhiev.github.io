@@ -850,6 +850,20 @@ a:hover, a:focus, a:active {
           justify-content: space-between;
 }
 
+.news__more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 30px 30px 30px;
+}
+
+.news__more .btn__base {
+  width: 255px;
+}
+
 .news-main {
   position: relative;
   border-radius: 20px;
@@ -950,6 +964,7 @@ a:hover, a:focus, a:active {
   border-radius: 20px;
   overflow: hidden;
   background: var(--bg-color);
+  padding-bottom: 1em;
 }
 
 .map__info .info__text {
