@@ -5,7 +5,7 @@ html {
 html:root {
   --bg-color: #fafafa;
   --header-color: #e7ebf3;
-  --base-color: #1b88b1;
+  --base-color: #7bd0ed;
   --base-transparent: rgba(27, 137, 177, .05);
   --text-color: #474a51;
   --text2-color: #fafafa;
@@ -913,17 +913,14 @@ a:hover, a:focus, a:active {
 
 .map__block {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
 }
 
 .map {
   padding: 0 30px;
-  width: 80%;
 }
 
 .map svg {
@@ -941,26 +938,49 @@ a:hover, a:focus, a:active {
 }
 
 .map__info {
-  display: none;
   position: relative;
   width: 100%;
-  padding: 0 5em;
-  padding: 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border-radius: 20px;
   overflow: hidden;
-  background: var(--base-transparent);
-  height: 300px;
-  color: var(--text2-color);
+  background: var(--bg-color);
 }
 
-.map__info .sight__list {
+.map__info .info__text {
+  padding: 1.5em;
+}
+
+.map__info .info__text .title {
+  margin-bottom: 1em;
+}
+
+.map__info .info__list {
   padding-left: 0;
   list-style-position: inside;
   list-style-type: none;
-  color: var(--text2-color);
 }
 
-.map__info .sight__item .link {
+.map__info .info__item {
+  border-bottom: 0.5px solid var(--grey-color);
+}
+
+.map__info .info__item:first-child {
+  border-top: 0.5px solid var(--grey-color);
+}
+
+.map__info .info__item .link {
+  display: block;
+  padding: .5em 1.5em;
+}
+
+.map__info .info__item .link:hover {
+  background: var(--base-color);
   color: var(--text2-color);
 }
 
@@ -1119,13 +1139,24 @@ a:hover, a:focus, a:active {
 }
 
 .video__block .video__slide {
-  width: 800px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.video__block video {
-  width: 100%;
-  height: auto;
+.video__block video, .video__block iframe {
+  width: 500px;
+  height: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (max-width: 576px) {
