@@ -10,7 +10,6 @@ $(document).ready(function () {
 	const videos = new Swiper('.video__block .swiper', {
 		slidesPerView: 1,
 		spaceBetween: 30,
-		// Responsive breakpoints
 		breakpoints: {
 			992: {
 				slidesPerView: 2,
