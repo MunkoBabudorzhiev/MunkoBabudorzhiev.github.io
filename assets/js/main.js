@@ -19,5 +19,4 @@ $(document).ready(function () {
   $('.nav__link').click(function () {
     $('.nav__toggler .nav__icon, .nav__list, .header').removeClass('open');
   });
-	
 });
