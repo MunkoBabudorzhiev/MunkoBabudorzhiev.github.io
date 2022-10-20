@@ -17,6 +17,7 @@ html {
 html:root {
   --bg-color: #fafafa;
   --header-color: #e7ebf3;
+  --footer-color: #536e70;
   --base-color: #7bd0ed;
   --base-transparent: rgba(27, 137, 177, .05);
   --text-color: #474a51;
@@ -578,6 +579,7 @@ a:hover, a:focus, a:active {
 
 .header {
   background: var(--header-color);
+  padding-bottom: 1.5em;
 }
 
 .header__block {
@@ -623,6 +625,67 @@ a:hover, a:focus, a:active {
 
 .header__title {
   grid-column: span 6;
+}
+
+.footer {
+  background: var(--footer-color);
+  color: var(--text2-color);
+  padding: 1.5em 0;
+}
+
+.footer .info__item .link {
+  color: inherit;
+}
+
+.footer .info__item .link:hover {
+  color: var(--base-color);
+}
+
+.footer__block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(155px, 1fr))[4];
+      grid-template-columns: repeat(4, minmax(155px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 1em;
+}
+
+.footer__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer__social {
+  grid-column: span 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em 0;
+}
+
+.footer__info {
+  grid-column: span 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: 1em 0;
 }
 
 .info__item .link {
@@ -840,8 +903,8 @@ a:hover, a:focus, a:active {
      object-fit: cover;
   width: 100%;
   height: 100%;
-  -webkit-filter: grayscale(100%);
-          filter: grayscale(100%);
+  -webkit-filter: grayscale(70%);
+          filter: grayscale(70%);
   -webkit-transition: all .3s ease-in-out;
   transition: all .3s ease-in-out;
 }
@@ -997,16 +1060,23 @@ a:hover, a:focus, a:active {
   height: 100%;
 }
 
-.map svg .part {
+.map svg .map-part {
   fill: #edf69b;
+  stroke: #454646;
+  -webkit-transition: all 350ms ease-in-out;
+  transition: all 350ms ease-in-out;
+}
+
+.map svg .map-part.highlight, .map svg .map-part:hover {
+  fill: #f05555;
+}
+
+.map svg .map-baikal {
+  fill: #7bd0ed;
   stroke: #454646;
 }
 
-.map svg .part.part-23 {
-  fill: #7bd0ed;
-}
-
-.map__info {
+.map-info {
   position: relative;
   width: 100%;
   display: -webkit-box;
@@ -1019,58 +1089,88 @@ a:hover, a:focus, a:active {
   border-radius: 20px;
   overflow: hidden;
   background: var(--bg-color);
-  padding-bottom: 1em;
+  padding-bottom: 1.5em;
+  max-height: 450px;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
-.map__info .info__text {
+.map-info.hide {
+  max-height: 0;
+  padding-bottom: 0;
+}
+
+.map-info__text {
   padding: 1.5em;
 }
 
-.map__info .info__text .title {
+.map-info__text .title {
   margin-bottom: 1em;
 }
 
-.map__info .info__list {
+.map-info__list {
   padding-left: 0;
   list-style-position: inside;
   list-style-type: none;
+  max-height: 100%;
+  overflow: hidden scroll;
 }
 
-.map__info .info__item {
+.map-info__item {
   border-bottom: 0.5px solid var(--grey-color);
 }
 
-.map__info .info__item:first-child {
+.map-info__item:first-child {
   border-top: 0.5px solid var(--grey-color);
 }
 
-.map__info .info__item .link {
+.map-info__item .map-title {
   display: block;
   padding: .5em 1.5em;
 }
 
-.map__info .info__item .link:hover {
+.map-info__item .map-title:hover {
   background: var(--base-color);
   color: var(--text2-color);
 }
 
-.map__info .info__img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  margin-bottom: 1em;
-  width: 100%;
-  height: 100%;
+.map-info__item .map-title.highlight {
+  background: var(--base-color);
 }
 
-.map__info .info__img img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+.map-content {
+  display: none;
   width: 100%;
   height: 100%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+.map-content.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1.5em;
+}
+
+.map-content .back {
+  margin-top: auto;
+}
+
+.map-content__item {
+  display: none;
+  width: 100%;
+  height: auto;
+}
+
+.map-content__item.active {
+  display: block;
 }
 
 .section__gallery {
