@@ -49,29 +49,34 @@ function hidePart(evnt) {
 function showContent(evnt) {
 	// let part_num, map_info, map_content, map_content_items, map_parts;
 	let part_num;
-	part_num = evnt.currentTarget.getAttribute('data-part');
-	
 
+	if (evnt.currentTarget.hasAttribute('data-distr')) {
+		part_num = evnt.currentTarget.getAttribute('data-distr');		
+	} else {
+		part_num = evnt.currentTarget.getAttribute('data-part');
+	} 
 	
 	if (!map_info.classList.contains('hide') && !map_content.classList.contains('show')) {
 		map_info.classList.add('hide');
 		map_content.classList.add('show');
 	}
-	
+
 	for(let n = 0; n < map_parts.length; n++) {
 		if (map_parts[n].classList.contains('highlight')) {
 			map_parts[n].classList.remove('highlight');
 		}
 	}
-
+	
 	for(let i = 0; i < map_content_items.length; i++) {
 		if (map_content_items[i].classList.contains('active') ) {
 			map_content_items[i].classList.remove('active'); 
 		}
 	}
-
-	document.getElementById(`map-${part_num}`).classList.add('highlight');
+	
 	document.getElementById(`content-${part_num}`).classList.add('active');
+	document.getElementById(`map-${part_num}`).classList.add('highlight');
+
+
 }
 
 function hideContent(evnt) {
@@ -88,6 +93,7 @@ function hideContent(evnt) {
 
 for(let i = 0; i < map_titles.length; i++) {
 	map_titles[i].addEventListener('mouseover', showPart);
+	map_titles[i].addEventListener('click', showContent);
 	map_titles[i].addEventListener('mouseout', hidePart);
 }
 
