@@ -279,13 +279,19 @@
 
 }
 .section__banner {
-	// height: calc(100vh - 168px);
-	height: 600px;
+	height: calc(100vh - 268px);
+	// height: 600px;
 }
 .banner__block {
 	height: 100%;
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	.swiper {
+		height: 100%;
+	}
+	.swiper-slide {
+		height: 100%;
+	}
+	// display: grid;
+	// grid-template-columns: repeat(5, 1fr);
 }
 .banner__item {
 	height: 100%;

@@ -86,7 +86,9 @@
 			box-shadow: none;
 		}
 	}
-	.header__block,
+	.header__block {
+		grid-template-columns: repeat(2, 1fr);
+	}
 	.footer__block {
 		grid-template-columns: repeat(3, minmax(150px, 1fr));
 	}
@@ -402,7 +404,18 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 420px) {
 
-
+	.footer__block {
+		grid-template-columns: 1fr;
+	}
+	.footer__social,
+	.footer__title {
+		grid-column: span 1;
+	}
+	.video__block {
+		.swiper {
+			height: 280px;
+		}
+	} 
 }
