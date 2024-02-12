@@ -7,10 +7,96 @@
 	
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	
+	<link rel="stylesheet" href="assets/css/style.min.css">
 </head>
 <body>
-	
+	<div class="wrapper-site">
+		<form action="" class="callback-form">
+			<div class="form-img">
+				<img src="assets/img/bg.jpg" alt="">
+			</div>
+			<div class="form-content">
+				<div class="form-title">
+					<p class="h3">Get iinto it today</p>
+					<p class="h4 grey">There is no charge or obligation upon registration</p>
+				</div>
+				<div class="form-btns">
+					<a class="fb-btn form-btn" href="/"><img src="assets/img/facebook.svg" alt="Facebook">Register with Facebook</a>
+					<a class="lin-btn form-btn" href=""><img src="assets/img/linkedin.svg" alt="Linkedin">Register with LinkedIn</a>
+				</div>
+				<div class="form-line">
+					<span>OR</span>
+				</div>
+				<div class="form-groups">
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input type="email" name="email" autocomplete="off" >
+					</div>
+
+					<div class="form-group">
+						<label for="phone">Phone</label>
+            <input type="phone" id="phone" name="phone" required>
+					</div>
+				</div>
+				<div class="form-title">
+					<p class="h5">What type of investor are you?</p>
+					<p class="p grey">Select the type of investor you below</p>
+				</div>
+				<div class="form-tabs">
+					<div class="tab-header">
+						<div class="tab-group">
+							<input class="radio-custom" type="radio" id="type1" name="type" autocomplete="off" >
+							<label class="radio-custom-label" for="type1" onclick="openTab(event, 'tab1')">Individual</label>
+						</div>
+						<div class="tab-group">
+							<input class="radio-custom" type="radio" id="type2" name="type" required>
+							<label class="radio-custom-label" for="type2" onclick="openTab(event, 'tab2')">Business</label>
+						</div>
+						<div class="tab-group">
+							<input class="radio-custom" type="radio" id="type3" name="type" required>
+							<label class="radio-custom-label" for="type3" onclick="openTab(event, 'tab3')">IRA</label>
+						</div>
+						<div class="tab-group">
+							<input class="radio-custom" type="radio" id="type4" name="type" required>
+							<label class="radio-custom-label" for="type4" onclick="openTab(event, 'tab4')">Trust</label>
+						</div>
+					</div>
+					<div id="tab1" class="tab-content">
+            <p>This is the content of tab 1.</p>
+					</div>
+					<div id="tab2" class="tab-content">
+						<p>This is the content of tab 2.</p>
+					</div>
+					<div id="tab3" class="tab-content">
+						<p>This is the content of tab 3.</p>
+					</div>
+					<div id="tab4" class="tab-content">
+						<p>This is the content of tab 4.</p>
+					</div>
+				</div>
+				<div class="form-footer">
+					<div class="form-agrement">
+						<input class="checkbox-custom" type="checkbox" id="agrement" name="type" autocomplete="off" >
+						<label class="checkbox-custom-label" for="agrement">I agree to terms and receiving notification from IINTOO <a href="/" class="link">View full terms</a></label>
+					</div>
+					<button class="form-submit" type="submit">Create Account</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script>
+		function openTab(event, tabId) {
+			var tabContents = document.getElementsByClassName('tab-content');
+			for (var i = 0; i < tabContents.length; i++) {
+				tabContents[i].classList.remove('active');
+			}
+			var tabLinks = document.getElementsByClassName('radio-custom-label');
+			for (var i = 0; i < tabLinks.length; i++) {
+				tabLinks[i].classList.remove('active');
+			}
+			document.getElementById(tabId).classList.add('active');
+			event.currentTarget.classList.add('active');
+		}
+</script>
 </body>
 </html>
